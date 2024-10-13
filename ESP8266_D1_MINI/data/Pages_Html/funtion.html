@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Chart Example</title>
+    <link rel="stylesheet" href="../Animation_Css/styles_chucnang.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../Backend_Java/main_chucnang.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <button class="back-button" onclick="goBack()">← Back</button>
+        <h1>Biểu Đồ Cột Thống Kê Sức Khỏe</h1>
+    </header>
+    
+    <div class="note">
+        <p>Biểu đồ cột hiển thị các chỉ số sức khỏe hàng tháng. Dữ liệu có thể được cập nhật để theo dõi tình trạng sức khỏe của bạn.</p>
+    </div>
+    
+    <div class="container">
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="info-container">
+            <h2>Chỉ số hiện tại</h2>
+            <p><strong>Nhiệt độ:</strong> <span id="temperature">36.8°C</span></p>
+            <p><strong>Nhịp tim:</strong> <span id="heartRate">80 bpm</span></p>
+            <p><strong>Huyết áp:</strong> <span id="bloodPressure">125/85 mmHg</span></p>
+        </div>
+    </div>
+</body>
+</html>

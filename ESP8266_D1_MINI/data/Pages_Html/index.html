@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NCKH_WEB</title>
+    <link rel="stylesheet" href="../Animation_Css/styles.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="top-bar"></div>
+    <!-- Phần đầu -->
+    <header>
+      <div class="header-logo">
+        <img src="../image/logoPtit.png" alt="Logo" />
+      </div>
+      <div class="header-text">
+        <h1>HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG CƠ SỞ TP.HỒ CHÍ MINH</h1>
+        <h2>Posts and Telecommunications Institute of Technology</h2>
+      </div>
+      <!-- Đăng kí_Đăng nhập -->
+      <div class="header-links">
+        <a href="./signup.html" data-en="SIGN UP" data-vi="ĐĂNG KÍ">ĐĂNG KÍ</a>
+        <span class="separator">|</span>
+        <a href="./login.html" data-en="LOG IN" data-vi="ĐĂNG NHẬP"
+          >ĐĂNG NHẬP</a
+        >
+        <div class="flags">
+          <img
+            src="https://emojigraph.org/media/twitter/flag-vietnam_1f1fb-1f1f3.png"
+            alt="Vietnam Flag"
+            id="vi"
+            class="flag"
+          />
+          <img
+            src="https://emojigraph.org/media/twitter/flag-united-states_1f1fa-1f1f8.png"
+            alt="UK Flag"
+            id="en"
+            class="flag"
+          />
+          <button id="switch-mode">
+            <i class="bi bi-moon-stars-fill"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Thanh tap vụ_Home -->
+    <section class="home" id="home">
+      
+        <nav class="navbar">
+            <a href="#home" data-en="Home" data-vi="Trang chủ"><i class="bi bi-house-door"></i> Trang chủ</a>
+            <div class="dropdown">
+              <a href="#" class="dropdown-toggle" data-en="Function" data-vi="Chức năng">Chức năng <i class="fa fa-chevron-down"></i></a>
+              <div class="dropdown-menu list-group">
+                <a href="./funtion.html" class="list-group-item list-group-item-action">Nhiệt độ cơ thể</a>
+                <a href="./funtion.html" class="list-group-item list-group-item-action">Nhịp tim và SpO2</a>
+              </div>
+            </div>
+            <a href="#linhkien" data-en="Introduction" data-vi="Giới thiệu"><i class="bi bi-info-circle"></i> Giới thiệu</a>
+            <a href="#team" data-en="Contact" data-vi="Liên hệ"><i class="bi bi-telephone"></i> Liên hệ</a>
+          </nav>          
+
+      <!-- Chèn thanh tiêu đề cuộn ở đây -->
+      <div class="title-bar">
+        <div class="scrolling-text">
+          <p>Đề tài: Nghiên cứu, xây dựng và phát triển thiết bị theo dõi sức khỏe</p>
+        </div>
+      </div>    
+
+      <!-- Phần Slideshow picture_Home-->
+      <div class="slideshow-container">
+        <div class="mySlides cover">
+          <img
+            src="../image/picture1.jpg"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides cover">
+          <img
+            src="../image/picture2.jpg"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides cover">
+          <img
+            src="../image/picture3.png"
+            style="width: 100%"
+          />
+        </div>
+        <div class="mySlides cover">
+          <img
+            src="../image/picture4.jpg"
+            style="width: 100%"
+          />          
+        </div>
+        <!-- Nút điều khiển -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <!-- Chấm nhỏ ở dưới -->
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
+    </section>
+
+
+
+    <!-- GIOI THIEU LINH KIEN -->
+    <section class="item-carousel" id="linhkien">
+      <!-- Linh Kien Item 1 -->
+      <div class="item active">
+        <div class="bg"></div>
+        <div class="info-box">
+          <div class="info-item">
+            <h2>Kit RF Thu Phát Wifi ESP8266 NodeMCU Lua D1 Mini</h2>
+            <ul>
+              <li><strong>Vi điều khiển:</strong> ESP8266EX</li>
+              <li><strong>Điện áp hoạt động:</strong> 3.3V</li>
+              <li>
+                <strong>Số chân I/O:</strong> 11 (tất cả các chân I/O đều có
+                Interrupt/PWM/I2C/One-wire, trừ chân D0)
+              </li>
+              <li><strong>Số chân Analog Input:</strong> 1 (tối đa 3.3V)</li>
+              <li><strong>Bộ nhớ Flash:</strong> 4MB</li>
+              <li><strong>Giao tiếp:</strong> Cable Micro USB</li>
+              <li><strong>Nguồn áp:</strong> 5V (Micro USB)</li>
+              <li><strong>Wifi:</strong> 2.4 GHz</li>
+              <li><strong>Hỗ trợ bảo mật:</strong> WPA/WPA2</li>
+              <li><strong>Tích hợp:</strong> TCP/IP</li>
+              <li><strong>Kích thước:</strong> 34.2mm x 25.6mm</li>
+              <li>
+                <strong>Lập trình trên:</strong> C/C++, Micropython, NodeMCU-Lua
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="../image/esp8266.jpg"
+            alt="Kit RF Thu Phát Wifi ESP8266 NodeMCU Lua D1 Mini"
+          />
+        </div>
+      </div>
+
+      <!-- Linh Kien Item 2 -->
+      <div class="item">
+        <div class="bg"></div>
+        <div class="info-box">
+          <div class="info-item">
+            <h2>Cảm biến nhịp tim và oxy trong máu MAX30100</h2>
+            <ul>
+              <li>
+                <strong>Điện áp hoạt động:</strong> 1.8V đến 5V (tốt nhất dùng
+                3.3V)
+              </li>
+              <li><strong>Tốc độ đọc dữ liệu:</strong> 50Hz đến 1kHz</li>
+              <li><strong>Giao tiếp:</strong> I2C, mức tín hiệu TTL</li>
+              <li><strong>Kích thước:</strong> 5.6mm x 2.8mm x 1.2mm</li>
+              <li><strong>Nhiệt độ hoạt động:</strong> -40°C đến +85°C</li>
+              <li><strong>Dòng tiêu thụ:</strong> 0.7μA</li>
+              <li><strong>Công suất tiêu thụ:</strong> 35μW</li>
+              <li>
+                <strong>Hoạt động năng lượng thấp:</strong> Tăng tuổi thọ pin
+                cho các thiết bị đeo được
+              </li>
+              <li><strong>Tốc độ lấy mẫu tín hiệu:</strong> Cao</li>
+              <li><strong>Độ phân giải ADC:</strong> 14 bit</li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="../image/Max30102.jpg"
+            alt="Cảm biến nhịp tim và oxy trong máu MAX30100"
+          />
+        </div>
+      </div>
+
+      <!-- Linh Kien Item 3 -->
+      <div class="item">
+        <div class="bg"></div>
+        <div class="info-box">
+          <div class="info-item">
+            <h2>Màn hình OLED 0.96 inch giao tiếp I2C 2 màu</h2>
+            <ul>
+              <li><strong>Điện áp sử dụng:</strong> 2.2~5.5VDC</li>
+              <li><strong>Công suất tiêu thụ:</strong> 0.04W</li>
+              <li><strong>Góc hiển thị:</strong> Lớn hơn 160 độ</li>
+              <li><strong>Số điểm hiển thị:</strong> 128 x 64 điểm</li>
+              <li><strong>Độ rộng màn hình:</strong> 0.96 inch</li>
+              <li><strong>Màu hiển thị:</strong> Vàng-Xanh</li>
+              <li><strong>Giao tiếp:</strong> I2C</li>
+              <li><strong>Driver:</strong> SSD1306</li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="../image/Oled.webp"
+            alt="Màn hình OLED 0.96 inch giao tiếp I2C 2 màu"
+          />
+        </div>
+      </div>
+
+      <!-- Linh Kien Item 4 -->
+      <div class="item">
+        <div class="bg"></div>
+        <div class="info-box">
+          <div class="info-item">
+            <h2>Cảm Biến Nhiệt Hồng Ngoại Không Tiếp Xúc MLX90614</h2>
+            <ul>
+              <li>
+                <strong>Điện áp hoạt động:</strong> 3.6V đến 5V (có sẵn trong
+                phiên bản 3V và 5V)
+              </li>
+              <li><strong>Cung cấp hiện tại:</strong> 1.5mA</li>
+              <li>
+                <strong>Phạm vi nhiệt độ đối tượng:</strong> -70°C đến 382.2°C
+              </li>
+              <li>
+                <strong>Phạm vi nhiệt độ môi trường:</strong> -40°C đến 125°C
+              </li>
+              <li><strong>Độ chính xác:</strong> 0.02°C</li>
+              <li>
+                <strong>Trường nhìn:</strong> 80° (Phạm vi nhìn thấy tại 1 điểm)
+              </li>
+              <li>
+                <strong>Khoảng cách giữa đối tượng và cảm biến:</strong> 2cm-5cm
+                (ước chừng)
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-box">
+          <img
+            src="../image/MLX90614.jpg"
+            alt="Cảm Biến Nhiệt Hồng Ngoại Không Tiếp Xúc MLX90614"
+          />
+        </div>
+      </div>
+
+      <!-- Linh Kien Item 5 -->
+      <div class="item">
+        <div class="bg"></div>
+        <div class="info-box">
+          <div class="info-item">
+            <h2>Pin LiPo 3.7V 1200mAh</h2>
+            <ul>
+              <li><strong>Điện áp định mức:</strong> 3.7V</li>
+              <li><strong>Kích thước:</strong> 29mm x 55mm x 10mm</li>
+              <li><strong>Trọng lượng:</strong> 32g</li>
+              <li><strong>Chiều dài dây:</strong> 60mm</li>
+            </ul>
+          </div>
+        </div>
+        <div class="img-box">
+          <img src="../image/pinLipo.jpg" alt="Pin LiPo 3.7V 1200mAh" />
+        </div>
+      </div>
+
+      <!-- Thumbnail Navigation -->
+      <ul class="thumb">
+        <li class="selected">
+          <img src="../image/esp8266.jpg" alt="Thumbnail 1" />
+        </li>
+        <li><img src="../image/Max30102.jpg" alt="Thumbnail 2" /></li>
+        <li><img src="../image/Oled.webp" alt="Thumbnail 3" /></li>
+        <li><img src="../image/MLX90614.jpg" alt="Thumbnail 4" /></li>
+        <li><img src="../image/pinLipo.jpg" alt="Thumbnail 5" /></li>
+      </ul>
+    </section>
+    <!-- THANH VIEN NHOM  -->
+    <section class="team-introduction" id="team">
+      <div class="container">
+        <h2>THÀNH VIÊN NHÓM</h2>
+        <div class="slider">
+          <!-- Thành viên 1 -->
+          <div class="card">
+            <div class="content">
+              <div class="imgBx">
+                <img
+                  src="../image/TMT.jpg"
+                  alt="Member 1"
+                />
+              </div>
+              <div class="contentBx">
+                <h3>Tran Minh Thuong<br /><span>Group Leader</span></h3>
+              </div>
+            </div>
+            <!-- ICON -->
+            <ul class="sci">
+              <li style="--i: 1">
+                <a href="https://www.facebook.com/trannminh.thuongg"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+              <li style="--i: 2">
+                <a
+                  href="https://www.linkedin.com/in/tranminhthuongg/"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </li>
+              <li style="--i: 3">
+                <a href="https://github.com/MinhThuongTMT"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <!-- Thành viên 2 -->
+          <div class="card">
+            <div class="content">
+              <div class="imgBx">
+                <img
+                  src="../image/Thang.jpg"
+                  alt="Member 2"
+                />
+              </div>
+              <div class="contentBx">
+                <h3>Nguyen Hoang Thang<br /><span>Member</span></h3>
+              </div>
+            </div>
+            <!-- ICON -->
+            <ul class="sci">
+              <li style="--i: 1">
+                <a href="https://www.facebook.com/profile.php?id=100068115452602"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+              <li style="--i: 2">
+                <a
+                  href="https://www.linkedin.com/in/nguyen-hoang-thang-ba024b302/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </li>
+              <li style="--i: 3">
+                <a href="https://github.com/hurdaw"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Thành viên 3 -->
+          <div class="card">
+            <div class="content">
+              <div class="imgBx">
+                <img
+                  src="../image/Khanh.jpg"
+                  alt="Member 3"
+                />
+              </div>
+              <div class="contentBx">
+                <h3>
+                  Tran Nguyen Tuan Khanh<br /><span>Member</span>
+                </h3>
+              </div>
+            </div>
+            <!-- ICON -->
+            <ul class="sci">
+              <li style="--i: 1">
+                <a href="https://www.facebook.com/profile.php?id=100015935527082"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+              </li>
+              <li style="--i: 2">
+                <a
+                  href="https://www.linkedin.com/in/tran-khanh-29063a2a9/"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+              </li>
+              <li style="--i: 3">
+                <a href="https://github.com/OneForALL123"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" />
+          <input type="email" placeholder="Email Address" />
+        </div>
+
+        <div class="input-box">
+          <input type="number" placeholder="Mobile Number" />
+          <input type="text" placeholder="Email Subject" />
+        </div>
+        <textarea
+          name=""
+          id=""
+          cols="30"
+          rows="15"
+          placeholder="Your Message"
+        ></textarea>
+        <input type="submit" value="Send Message" class="btn" />
+      </form>
+    </section>
+
+    <!-- Phan dia chi-->
+    <div class="footer">
+      <div class="footer-content">
+        <div>
+          <h3>Học viện cơ sở tại Thủ Đô Hà Nội:</h3>
+          <p>Trụ sở chính:</p>
+          <p>122 Hoàng Quốc Việt, Q.Cầu Giấy, Hà Nội.</p>
+          <p>Cơ sở đào tạo tại Hà Nội:</p>
+          <p>Km10, Đường Nguyễn Trãi, Q.Hà Đông, Hà Nội</p>
+        </div>
+        <div>
+          <h3>Học viện cơ sở tại TP. Hồ Chí Minh:</h3>
+          <p>Trụ sở chính:</p>
+          <p>11 Nguyễn Đình Chiểu, P. Đa Kao, Q.1 TP Hồ Chí Minh</p>
+          <p>Cơ sở đào tạo tại TP Hồ Chí Minh:</p>
+          <p>97 Man Thiện, P. Hiệp Phú, TP Hồ Chí Minh</p>
+        </div>
+        <div>
+          <img src="../image/Map.jpeg" alt="Map" />
+        </div>
+      </div>
+
+      <!-- Phan cuoi trang -->
+      <div class="bottom-footer">
+        &copy; 2024 TKT Designer. All Rights Reserved.
+      </div>
+    </div>
+
+    <script src="../Backend_Java/script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Back to top -->
+    <a href="#" class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </a>
+  </body>
+</html>

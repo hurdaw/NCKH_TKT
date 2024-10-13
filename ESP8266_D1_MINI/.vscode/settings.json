@@ -1,0 +1,7 @@
+{
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "cmath": "cpp"
+  },
+  "cmake.ignoreCMakeListsMissing": true
+}
