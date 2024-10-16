@@ -45,8 +45,8 @@
 const char *ssid = "PTIT.HCM_CanBo";
 const char *password = ""; // Đảm bảo mật khẩu có ít nhất 8 ký tự
 // Khai báo Firebase
-#define FIREBASE_HOST "https://tkt1-15e2-default-rtdb.firebaseio.com/" 
-#define FIREBASE_AUTH "aNjO01miLRKcv88d1bheYWArXunrqo1b1LVmRiqo"       
+#define FIREBASE_HOST "https://tkt1-15e2-default-rtdb.firebaseio.com/"
+#define FIREBASE_AUTH "aNjO01miLRKcv88d1bheYWArXunrqo1b1LVmRiqo"
 // Thông tin Firebase
 #define API_KEY "AIzaSyCo8OPFkNwVBfNjs6uCNac5GqOeuG83_I0"
 #define DATABASE_URL "https://tkt1-15e42-default-rtdb.firebaseio.com/"
@@ -128,31 +128,36 @@ void setup()
     // Serial.println(WiFi.softAPIP());
 
     // Khởi tạo cảm biến MLX90614
-    if (!mlx.begin())
-    {
-        Serial.println("Error connecting to MLX90614 sensor. Check your wiring!");
-        while (1)
-            ;
-        delay(500);
-    }
+    // if (!mlx.begin())
+    // {
+    //     Serial.println("Error connecting to MLX90614 sensor. Check your wiring!");
+    //     while (1)
+    //         ;
+    //     delay(500);
+    // }
+    mlx.begin();
     // Initialize the OLED display
-    if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
-    {
-        Serial.println(F("SSD1306 allocation failed"));
-        for (;;)
-            ; // Don't proceed, loop forever
-    }
+    // if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C))
+    // {
+    //     Serial.println(F("SSD1306 allocation failed"));
+    //     for (;;)
+    //         ; // Don't proceed, loop forever
+    // }
+    display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
     // Initialize the MAX30105 sensor
-    if (!particleSensor.begin(Wire, I2C_SPEED_FAST))
-    {
-        Serial.println(F("MAX30105 not found. Check your wiring/power."));
-        while (1)
-            ;
-    }
+    // if (!particleSensor.begin(Wire, I2C_SPEED_FAST))
+    // {
+    //     Serial.println(F("MAX30105 not found. Check your wiring/power."));
+    //     while (1)
+    //         ;
+    // }
+    particleSensor.begin(Wire, I2C_SPEED_FAST);
     // Cấu hình Firebase
     config.api_key = API_KEY;
     config.database_url = DATABASE_URL;
-
+    // Bắt đầu Firebase
+    Firebase.begin(&config, &auth);
+    Firebase.reconnectWiFi(true);
     // Đăng ký
     if (Firebase.signUp(&config, &auth, "", ""))
     {
@@ -163,9 +168,7 @@ void setup()
     {
         Serial.printf("Signup failed: %s\n", config.signer.signupError.message.c_str());
     }
-    // Bắt đầu Firebase
-    Firebase.begin(&config, &auth);
-    Firebase.reconnectWiFi(true);
+
     byte ledBrightness = 60; // Tùy chọn: 0=Off đến 255=50mA
     byte sampleAverage = 4;  // Tùy chọn: 1, 2, 4, 8, 16, 32
     byte ledMode = 2;        // Tùy chọn: 1 = Chỉ đỏ, 2 = Đỏ + IR, 3 = Đỏ + IR + Xanh
@@ -178,24 +181,24 @@ void setup()
     // display.display();
 
     // Khởi tạo LittleFS
-    if (!LittleFS.begin())
-    {
-        Serial.println("An Error has occurred while mounting LittleFS");
-        return;
-    }
+    // if (!LittleFS.begin())
+    // {
+    //     Serial.println("An Error has occurred while mounting LittleFS");
+    //     return;
+    // }
     timeClient.begin();
 }
 void loop()
 {
     int32_t resSpo2, resHeartRate;
-    if (Firebase.ready() && signupOK && (millis() - sendDataPrevMillis > interval || sendDataPrevMillis == 0))
-    {
-        sendDataPrevMillis = millis();
-        // Gọi hàm để đọc và gửi nhiệt độ
-        readMLXTempBody(true);
-        heartRateAndSpO2(true, resSpo2, resHeartRate);
-
-    }
+    // if (Firebase.ready() && signupOK && (millis() - sendDataPrevMillis > interval || sendDataPrevMillis == 0))
+    // {
+    //     sendDataPrevMillis = millis();
+    //     // Gọi hàm để đọc và gửi nhiệt độ
+    //     readMLXTempBody(true);
+    //     heartRateAndSpO2(true, resSpo2, resHeartRate);
+        
+    // }
     displayInfo();
 }
 
@@ -253,20 +256,20 @@ String readMLXTempBody(bool sendToFb)
     }
     else
     {
-        if (sendToFb)
+    if (sendToFb)
+    {
+        // Gửi dữ liệu lên Firebase
+        if (Firebase.RTDB.setFloat(&firebaseData, "sensor/objectTemp", objectTempC))
         {
-            // Gửi dữ liệu lên Firebase
-            if (Firebase.RTDB.setFloat(&firebaseData, "sensor/objectTemp", objectTempC))
-            {
-                Serial.println("objectTemp sent to Firebase: " + String(objectTempC));
-            }
-            else
-            {
-                Serial.println("Failed to send temperature to Firebase");
-                Serial.println("REASON: " + firebaseData.errorReason());
-            }
+            Serial.println("objectTemp sent to Firebase: " + String(objectTempC));
         }
-        return String(objectTempC);
+        else
+        {
+            Serial.println("Failed to send temperature to Firebase");
+            Serial.println("REASON: " + firebaseData.errorReason());
+        }
+    }
+    return String(objectTempC);
     }
 }
 // Hàm lấy thông tin nhịp tim và SpO2
@@ -313,7 +316,6 @@ void shiftSamples()
     {
         redBuffer[i - 25] = redBuffer[i];
         irBuffer[i - 25] = irBuffer[i];
-        delay(0);
     }
 }
 
@@ -334,7 +336,6 @@ void displayInfo()
     String bodyTemp = readMLXTempBody(false);
     int32_t resSpo2, resHeartRate;
     heartRateAndSpO2(false, resSpo2, resHeartRate);
-    delay(1000);
     display.clearDisplay();
 
     // display.display();
@@ -391,5 +392,4 @@ void displayInfo()
     display.setCursor(35, 55);
     display.print(F("Designed by TKT"));
     display.display();
-    delay(1000);
 }
